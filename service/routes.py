@@ -68,7 +68,7 @@ def list_accounts():
     """
     app.logger.info("List accoutns request")
     accounts = Account.all()
-    message = account.serialize()
+    message = accounts.serialize()
     return make_response(
         jsonify(message), 200
     )
@@ -78,7 +78,20 @@ def list_accounts():
 # READ AN ACCOUNT
 ######################################################################
 
-# ... place you code here to READ an account ...
+@app.route("/account/<uid>", methods=["GET"])
+def get_account(uid):
+    """
+    Get user account
+    """
+    app.logger.info("Get user account request")
+    account = Account.find(id=uid)
+    if account.exists() == False:
+        return "", 404        
+
+    message = account.serialize()
+    return make_response(
+        jsonify(message), 200
+    )
 
 
 ######################################################################
