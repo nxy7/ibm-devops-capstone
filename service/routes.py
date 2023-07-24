@@ -121,8 +121,19 @@ def get_account(uid):
 # DELETE AN ACCOUNT
 ######################################################################
 
-# ... place you code here to DELETE an account ...
+@app.route("/account/<uid>", methods=["DELETE"])
+def delete_account(uid):
+    """
+    Update user account
+    """
+    app.logger.info("Update account")
+    account = Account.find(id=uid)
 
+    if account.exists() == False:
+        return "", 404        
+    account.delete()
+
+    return "", 204
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
