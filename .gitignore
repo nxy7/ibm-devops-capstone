@@ -4,6 +4,8 @@ Thumbs.db
 
 # Nose
 .noseids
+.devenv
+.direnv
 
 # Vagrant
 .vagrant

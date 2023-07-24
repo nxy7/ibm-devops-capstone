@@ -1,0 +1,33 @@
+name: Bug Report
+description: File a bug report
+title: "[Feature Request]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: input
+    id: role
+    attributes:
+      label: As a..
+      description: Describe actor that requires this feature
+      placeholder: ex. Customer/Admin
+    validations:
+      required: true
+  - type: textarea
+    id: ineed
+    attributes:
+      label: I need..
+      description: Describe what functionality do you need
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    id: benefit
+    attributes:
+      label: So that..
+      description: Describe what value does this feature add
+      placeholder:  
+    validations:
+      required: true
