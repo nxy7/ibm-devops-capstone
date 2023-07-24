@@ -17,7 +17,7 @@
         devShell = pkgs.mkShell {
           packages = with pkgs; [
             (python39.withPackages (ps: with ps; [ flask ]))
-            python39Packages.nose
+            pipenv
           ];
         };
       });
