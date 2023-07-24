@@ -16,7 +16,8 @@
       in {
         devShell = pkgs.mkShell {
           packages = with pkgs; [
-            (python39.withPackages (ps: with ps; [ flask ]))
+            python39
+            python311Packages.python-lsp-server
             pipenv
           ];
         };

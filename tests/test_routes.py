@@ -124,3 +124,19 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
     # ADD YOUR TEST CASES HERE ...
+    def test_list_accounts(self):
+        response = self.client.get(BASE_URL)
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_account(self):
+        response = self.client.get(BASE_URL+"/1")
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_account(self):
+        response = self.client.put(BASE_URL+"/1")
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete_account(self):
+        response = self.client.delete(BASE_URL+"/1")
+        self.assertEqual(response.status_code, 204)
+
