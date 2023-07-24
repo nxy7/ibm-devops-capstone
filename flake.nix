@@ -13,5 +13,12 @@
           inherit system;
           config.allowUnfree = true;
         };
-      in { devShell = pkgs.mkShell { packages = with pkgs; [ hello ]; }; });
+      in {
+        devShell = pkgs.mkShell {
+          packages = with pkgs; [
+            (python39.withPackages (ps: with ps; [ flask ]))
+            python39Packages.nose
+          ];
+        };
+      });
 }
