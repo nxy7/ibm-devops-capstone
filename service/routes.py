@@ -98,7 +98,23 @@ def get_account(uid):
 # UPDATE AN EXISTING ACCOUNT
 ######################################################################
 
-# ... place you code here to UPDATE an account ...
+@app.route("/account/<uid>", methods=["PUT"])
+def get_account(uid):
+    """
+    Update user account
+    """
+    app.logger.info("Update account")
+    account = Account.find(id=uid)
+
+    if account.exists() == False:
+        return "", 404        
+    to_update = Account.deserialize(request.get_json())
+    to_update.update()
+
+    message = to_update.serialize()
+    return make_response(
+        jsonify(message), 200
+    )
 
 
 ######################################################################
