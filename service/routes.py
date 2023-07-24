@@ -85,7 +85,7 @@ def get_account(uid):
     """
     app.logger.info("Get user account request")
     account = Account.find(id=uid)
-    if account.exists() == False:
+    if not account:
         return "", 404        
 
     message = account.serialize()
@@ -106,7 +106,7 @@ def get_account(uid):
     app.logger.info("Update account")
     account = Account.find(id=uid)
 
-    if account.exists() == False:
+    if not account:
         return "", 404        
     to_update = Account.deserialize(request.get_json())
     to_update.update()
@@ -129,7 +129,7 @@ def delete_account(uid):
     app.logger.info("Update account")
     account = Account.find(id=uid)
 
-    if account.exists() == False:
+    if not account:
         return "", 404        
     account.delete()
 
