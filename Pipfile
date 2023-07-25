@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 werkzeug = "==2.1.2"
 sqlalchemy = "==1.4.46"
+flask-talisman = "==1.0.0"
 flask = "==2.1.2"
 flask-sqlalchemy = "==2.5.1"
 psycopg2-binary = "==2.9.3"

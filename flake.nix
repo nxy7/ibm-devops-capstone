@@ -17,7 +17,7 @@
         devShell = pkgs.mkShell {
           packages = with pkgs; [
             python39
-            python311Packages.python-lsp-server
+            # python311Packages.python-lsp-server
             pipenv
           ];
         };
